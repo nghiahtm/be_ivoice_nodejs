@@ -1,0 +1,28 @@
+const UserModel = require('../models/user_model');
+
+const UserController = {
+  login: (req, res) => {
+    try {
+        const { username, password } = req.body;
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Vui lòng nhập username và password' });
+    }
+
+    UserModel.getUserByUsername(username, (err, results) => {
+      if (err) return res.status(500).json({ error: 'Lỗi server' });
+      if (!results.length) return res.status(404).json({ error: 'User không tồn tại' });
+      const user = results[0];
+      if (user.password !== password) {
+          return res.status(401).json({ error: 'Mật khẩu không chính xác',status:401 });
+        }
+      
+      res.json({ message: '✅ Đăng nhập thành công', status:200,user: results[0] });
+    });
+    } catch (error) {
+        console.error('❌ Error:', error.message || error);
+        res.status(500).json({ message: "Lỗi", err: error.message || error, status: 500 });
+    }
+  },
+};
+
+module.exports = UserController;

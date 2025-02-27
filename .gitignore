@@ -1,0 +1,32 @@
+# 🚀 Loại bỏ thư mục node_modules (thư viện cài đặt)
+node_modules/
+
+# 🚀 Không theo dõi file lock của npm
+package-lock.json
+
+# 🚀 Không theo dõi file môi trường (chứa thông tin nhạy cảm)
+.env
+
+# 🚀 Bỏ qua thư mục test coverage nếu dùng Jest
+coverage/
+
+# 🚀 Loại bỏ các file log và debug
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# 🚀 Bỏ qua thư mục build (nếu có)
+dist/
+build/
+
+# 🚀 Bỏ qua file tạm của hệ điều hành (Mac, Windows, Linux)
+.DS_Store
+Thumbs.db
+
+# 🚀 Loại bỏ các file editor (VSCode, JetBrains)
+.vscode/
+.idea/
+
+# 🚀 Loại bỏ file output của Makefile
+Makefile~
