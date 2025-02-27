@@ -2,6 +2,12 @@
 NODE_ENV=development
 PORT=3000
 
+MSG="🚀 Update code"
+DIR = src
+
+cd:
+	@echo "📂 Changing directory to $(DIR)..."
+	@cd $(DIR) && ls
 # Chạy server
 run:
 	@echo "🚀 Starting server on port $(PORT)..."
@@ -25,8 +31,6 @@ clean:
 # Chạy lại từ đầu (clean + install + run)
 reset: clean install run
 
-# 🛠 Biến để chứa thông tin commit
-MSG="🚀 Update code"
 
 # 🏗 Push code lên Git
 push:
